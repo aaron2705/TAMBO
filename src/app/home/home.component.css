@@ -1,0 +1,21 @@
+
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .btn {
+    margin-top: 20px;
+  }
+  
+  .resultados {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .resultados p {
+    margin: 5px 0;
+  }
+  

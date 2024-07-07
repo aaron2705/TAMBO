@@ -1,0 +1,22 @@
+<div class="header__carrito" (click)="toggleCarrito()" (clickOutside)="cerrarCarrito()">
+  <div class="header__circulo rounded-circle">
+    <i class="fa-solid fa-cart-shopping"></i>
+  </div>
+
+  <div class="ventana" *ngIf="mostrarCarrito">
+    <h3 class="ventana__h3">Mi pedido</h3>
+    <ul class="ventana__ul">
+      <li class="ventana__li" *ngFor="let item of carrito">
+        <span>{{ item.nombre }}</span>
+        <span>Cantidad: {{ item.cantidad }}</span>
+        <span>Subtotal: S/. {{ (item.cantidad * item.precio).toFixed(2) }}</span>
+        <button (click)="eliminarProducto(item.id_producto)">Eliminar</button>
+      </li>
+    </ul>
+    <div class="ventana__li">
+      <span>Total</span>
+      <span>S/. {{ obtenerTotal().toFixed(2) }}</span>
+    </div>
+    <button (click)="continuarCompra()" class="ventana__button btn">Continuar compra</button>
+  </div>
+</div>

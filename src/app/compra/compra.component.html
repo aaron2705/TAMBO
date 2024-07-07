@@ -1,0 +1,53 @@
+<div class="contenedor contenedor--compra">
+  <section class="datos d-flex justify-content-center align-items-center">
+    <div class="datos__contenedor">
+      <picture class="datos__picture">
+        <img src="https://dignita.tech/wp-content/uploads/2023/11/tambo.png" alt="">
+      </picture>
+      <p class="datos__p text-center">Aaron, estás a un click de tu pedido.</p>
+      <div class="datos__div">
+        <label for="direccion">Ingresa tu dirección de envío</label>
+        <input type="text" id="direccion" [(ngModel)]="direccion" placeholder="Ej: Calle 123 - UPN San Isidro" class="datos__input rounded">
+      </div>
+      <div class="datos__div">
+        <label for="telefono">Ingresa tu número de teléfono</label>
+        <input type="tel" id="telefono" [(ngModel)]="telefono" placeholder="Ej: 987654321" class="datos__input rounded">
+      </div>
+    </div>
+  </section>
+
+  <section class="detalles d-flex justify-content-center align-items-center">
+    <div class="detalles__contenedor">
+      <h1 class="detalles__h1">Detalles del Pedido</h1>
+      <div class="detalles__tabla">
+        <span>Subtotal</span>
+        <span>S/ {{ subtotal.toFixed(2)}}</span>
+        <span>Delivery</span>
+        <span>S/ {{ delivery }}</span>
+        <span>Total a pagar</span>
+        <span>S/ {{ total.toFixed(2) }}</span>
+      </div>
+      <select name="tipoComprobante" [(ngModel)]="tipoComprobante" class="detalles__select rounded">
+        <option value="Boleta">Boleta</option>
+        <option value="Factura">Factura</option>
+      </select>
+      <select name="metodoPago" [(ngModel)]="metodoPago" class="detalles__select rounded">
+        <option value="Tarjeta de Crédito o Débito">Tarjeta de Crédito o Débito</option>
+        <option value="Billeteras Virtuales">Billeteras Virtuales</option>
+        <option value="IziPay">IziPay</option>
+        <option value="Efectivo">Efectivo</option>
+      </select>
+      <div class="detalles__condiciones">
+        <input type="checkbox" name="condiciones" id="condiciones">
+        <span>He leído y acepto la Política de Cookies (Opcional)</span>
+      </div>
+      <button class="detalles__button btn rounded" (click)="registrarCompra()">Pagar</button>
+      <div id="compraExitosaModal" class="modal">
+        <div class="modal-content">
+          <span class="close" (click)="cerrarModal()">&times;</span>
+          <p>Su compra se realizó con éxito.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
